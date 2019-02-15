@@ -1,4 +1,4 @@
-package Calendar::DatesRoles::DataPreparer::CalendaVar::FromData;
+package Calendar::DatesRoles::DataPreparer::CalendarVar::FromData;
 
 # DATE
 # VERSION
@@ -6,6 +6,7 @@ package Calendar::DatesRoles::DataPreparer::CalendaVar::FromData;
 use 5.010001;
 use strict;
 use warnings;
+
 use Role::Tiny;
 no strict 'refs'; # Role::Tiny imports strict for us
 
@@ -13,7 +14,7 @@ sub prepare_data {
     my $mod = shift;
 
     my $fh  = \*{"$mod\::DATA"};
-    ${"$mod\::CALENDAR"} = {};
+    ${"$mod\::CALENDAR"} = {entries=>[]};
     my $cal = ${"$mod\::CALENDAR"};
 
     my $i = 0;
@@ -40,14 +41,12 @@ sub prepare_data {
         $e->{year}  = $1;
         $e->{month} = $2 + 0;
         $e->{day}   = $3 + 0;
-        $min = $e->{year} if !defined($min) || $min > $e->{year};
-        $max = $e->{year} if !defined($max) || $max < $e->{year};
         $e->{summary} = $fields[1];
         while ($e->{summary} =~ s/\s*\{(\w+):([^}]*)\}\s*//) {
             $e->{"summary.alt.lang.$1"} = $2;
         }
         $e->{tags} = [split /,/, $fields[2]] if defined $fields[2];
-        push $cal->{entries}, $e;
+        push @{ $cal->{entries} }, $e;
     }
 }
 
