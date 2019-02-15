@@ -47,6 +47,7 @@ sub prepare_data {
             $e->{"summary.alt.lang.$1"} = $2;
         }
         $e->{tags} = [split /,/, $fields[2]] if defined $fields[2];
+        $e->{default_lang} //= $cal->{default_lang} if $cal->{default_lang};
         push @{ $cal->{entries} }, $e;
     }
 }
