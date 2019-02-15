@@ -31,6 +31,7 @@ sub prepare_data {
             } else {
                 die "BUG: $mod:data line $i: Unknown directive '$name'";
             }
+            next;
         }
         next if $line =~ /^#/;
         my @fields = split /;/, $line;
