@@ -1,4 +1,4 @@
-package Calendar::DatesRoles::DataPreparer::CalendarVar::FromData;
+package Calendar::DatesRoles::DataPreparer::CalendarVar::FromDATA::Simple;
 
 # DATE
 # VERSION
@@ -58,7 +58,7 @@ sub prepare_data {
 =head1 DESCRIPTION
 
 This role will set consumer's C<$CALENDAR> package variable from consumer's
-C<__DATA__> section.
+C<__DATA__> section. The format of data in C<__DATA__> section is simple.
 
 Data in C<__DATA__> is line-based. Entries should be in the following format:
 
@@ -93,8 +93,10 @@ Another example:
  2019-02-14;Hari Valentine {en:Valentine's day}
  2019-06-01;Hari lahirnya Pancasila {en:Pancasila day};holiday
 
-For more complex stuffs, you are advised to construct C<$CALENDAR> yourself.
-Please consult L<Calendar::DatesRoles::DataUser::CalendarVar>.
+For more complex stuffs, you can use
+L<Calendar::DatesRoles::DataPreparer::CalendarVar::FromDATA::CSVJF> or construct
+C<$CALENDAR> yourself. Please consult
+L<Calendar::DatesRoles::DataUser::CalendarVar>.
 
 
 =head1 METHODS
@@ -103,6 +105,8 @@ Please consult L<Calendar::DatesRoles::DataUser::CalendarVar>.
 
 
 =head1 SEE ALSO
+
+L<Calendar::DatesRoles::DataPreparer::CalendarVar::FromDATA::CSVJF>
 
 L<Calendar::Dates>
 
