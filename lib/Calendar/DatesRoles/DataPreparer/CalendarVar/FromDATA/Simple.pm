@@ -37,9 +37,9 @@ sub prepare_data {
         my @fields = split /;/, $line;
         my $e = {};
         $e->{date} = $fields[0];
-        $e->{date} =~ /\A([0-9]{4})-([0-9]{2})-([0-9]{2})(?:T|\z)/
+        $e->{date} =~ /\A([0-9]{4}|-)-([0-9]{2})-([0-9]{2})(?:T|\z)/
             or die "BUG: $mod:data #$i: Invalid date syntax '$e->{date}'";
-        $e->{year}  = $1;
+        $e->{year}  = $1 unless $1 eq '-';
         $e->{month} = $2 + 0;
         $e->{day}   = $3 + 0;
         $e->{summary} = $fields[1];
