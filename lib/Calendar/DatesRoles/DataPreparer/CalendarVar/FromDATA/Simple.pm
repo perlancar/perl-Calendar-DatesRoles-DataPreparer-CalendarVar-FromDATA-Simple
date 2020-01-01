@@ -1,6 +1,8 @@
 package Calendar::DatesRoles::DataPreparer::CalendarVar::FromDATA::Simple;
 
+# AUTHORITY
 # DATE
+# DIST
 # VERSION
 
 use 5.010001;

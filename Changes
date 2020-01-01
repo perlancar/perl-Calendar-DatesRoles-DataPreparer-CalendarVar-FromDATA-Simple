@@ -1,3 +1,8 @@
+0.005   2020-01-01  Released-By: PERLANCAR; Urgency: medium
+
+	- Allow date format --mm-dd (anniversary without starting year).
+
+
 0.004   2019-07-08  Released-By: PERLANCAR; Urgency: high
 
 	- [bugfix] /a regex modifier is 5.14+ only [CT].
